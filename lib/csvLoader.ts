@@ -62,7 +62,7 @@ export async function loadReviewsFromCSV(): Promise<Review[]> {
     const review = reviewMap.get(reviewKey);
 
     // Add images to media array
-    if (isValidUrl(csvRow.imageUrl1) && !review.media.find((m: Media) => m.url === csvRow.imageUrl1)) {
+    if (csvRow.imageUrl1 && isValidUrl(csvRow.imageUrl1) && !review.media.find((m: Media) => m.url === csvRow.imageUrl1)) {
       review.media.push({
         type: 'image',
         url: csvRow.imageUrl1,
